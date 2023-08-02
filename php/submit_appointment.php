@@ -55,4 +55,3 @@ $conn->close();
 header("Location: http://localhost/Makeover/html/Appointment.html");
 exit;
 ?>
-
