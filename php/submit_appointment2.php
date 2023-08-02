@@ -10,13 +10,40 @@ $selectedDate = $_POST['myCalender3'];
 $selectedTime = $_POST['myDate3'];
 
 // Use prepared statements to prevent SQL injection
-$stmt = $conn->prepare("INSERT INTO appointments (fullname, contact, services, selected_date, selected_time) 
-                       VALUES (?, ?, ?, ?, ?)");
+$stmt = $conn->prepare("INSERT INTO users (username, email) 
+                       VALUES (?, ?)");
 
-$stmt->bind_param("sssss", $fullname, $contact, $services, $selectedDate, $selectedTime);
+$stmt->bind_param("ss", $fullname, $contact);
 
 if ($stmt->execute()) {
-    echo "Appointment booked successfully!";
+    $lastUserId = $stmt->insert_id;
+
+    // Continue with the code to insert data into the 'appointments' table
+    $stmt = $conn->prepare("INSERT INTO appointments (first_name, last_name, contact, email, services, selected_date, selected_time, username, fullname) 
+                           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+
+    $emptyValue = '';
+    $stmt->bind_param("sssssssss", $fullname, $emptyValue, $contact, $emptyValue, $services, $selectedDate, $selectedTime, $fullname, $fullname);
+
+    if ($stmt->execute()) {
+        // Data insertion into 'appointments' table successful
+        $lastAppointmentId = $stmt->insert_id;
+
+        // Continue with the code to transfer data to 'tblcustomers' table in 'makeover_admin' database
+        $stmt = $conn->prepare("INSERT INTO makeover_admin.tblcustomers (Name, Email, MobileNumber, Details) 
+                               VALUES (?, ?, ?, ?)");
+
+        $stmt->bind_param("ssss", $fullname, $contact, $contact, $services);
+
+        if ($stmt->execute()) {
+            // Data transferred successfully to 'tblcustomers' table in 'makeover_admin' database
+            echo "Appointment booked successfully!";
+        } else {
+            echo "Error: " . $stmt->error;
+        }
+    } else {
+        echo "Error: " . $stmt->error;
+    }
 } else {
     echo "Error: " . $stmt->error;
 }
