@@ -73,7 +73,7 @@ if (strlen($_SESSION['bpmsaid']) == 0) {
                   <th>Name</th>
                   <th>Mobile</th>
                   <th>Email</th>
-                  
+                  <th>Action</th>
                 </tr>
               </thead>
               <tbody>
@@ -89,11 +89,12 @@ if (strlen($_SESSION['bpmsaid']) == 0) {
                     <td><?php echo $row['Name']; ?></td>
                     <td><?php echo $row['MobileNumber']; ?></td>
                     <td><?php echo $row['Email']; ?></td>
-   
+                    <td><a href="edit-customer-detailed.php?editid=<?php echo $row['ID']; ?>">Edit</a></td>
                   </tr>
                 <?php
                   $cnt = $cnt + 1;
-                } ?></tbody>
+                } ?>
+                </tbody>
             </table>
           </div>
         </div>
