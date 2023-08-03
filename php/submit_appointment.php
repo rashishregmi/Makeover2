@@ -18,6 +18,7 @@ $stmt = $conn->prepare("INSERT INTO users (username, email, firstname, lastname,
 $stmt->bind_param("sssss", $firstName, $email, $firstName, $lastName, $contact);
 
 if ($stmt->execute()) {
+    // Data insertion into 'users' table successful
     $lastUserId = $stmt->insert_id;
 
     // Continue with the code to insert data into the 'appointments' table
@@ -31,10 +32,11 @@ if ($stmt->execute()) {
         $lastAppointmentId = $stmt->insert_id;
 
         // Continue with the code to transfer data to 'tblcustomers' table in 'makeover_admin' database
-        $stmt = $conn->prepare("INSERT INTO makeover_admin.tblcustomers (Name, Email, MobileNumber, Details) 
-                               VALUES (?, ?, ?, ?)");
+        $aptNumber = mt_rand(100000000, 999999999); // Generate a random 9-digit number for AptNumber
+        $stmt = $conn->prepare("INSERT INTO makeover_admin.tblappointment (AptNumber, Name, Email, PhoneNumber, AptDate, AptTime, Services) 
+                               VALUES (?, ?, ?, ?, ?, ?, ?)");
 
-        $stmt->bind_param("ssss", $fullname, $email, $contact, $services);
+        $stmt->bind_param("issssss", $aptNumber, $fullname, $email, $contact, $selectedDate, $selectedTime, $services);
 
         if ($stmt->execute()) {
             // Data transferred successfully to 'tblcustomers' table in 'makeover_admin' database

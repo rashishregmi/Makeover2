@@ -15,15 +15,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $result = $stmt->get_result();
 
         if ($result->num_rows > 0) {
-            // Login successful, redirect to the appointment page
+            // Login successful, set the $_SESSION['username'] variable and redirect to the appointment page
+            $row = $result->fetch_assoc();
+            $_SESSION['username'] = $row['username']; // Assuming the 'username' field exists in the 'users' table
             header("Location: http://localhost/Makeover/html/Appointment2.html");
             exit;
         } else {
             // Login failed, redirect back to the login page with an error message
+            $stmt->close();
             header("Location: http://localhost/Makeover/html/login.html#");
             exit;
         }
-        $stmt->close();
     } else {
         // Missing required fields: email or password
         header("Location: http://localhost/Makeover/html/login.html#");

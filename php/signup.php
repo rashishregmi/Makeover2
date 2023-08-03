@@ -31,6 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             try {
                 if ($stmt->execute()) {
                     // Registration successful, redirect back to login page with a success message
+                    $_SESSION['username'] = $username;
                     header("Location: http://localhost/Makeover/html/login.html#success");
                     exit;
                 } else {
