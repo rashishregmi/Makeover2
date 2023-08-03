@@ -33,7 +33,7 @@ if ($stmt->execute()) {
         $stmt = $conn->prepare("INSERT INTO makeover_admin.tblcustomers (Name, Email, MobileNumber, Details) 
                                VALUES (?, ?, ?, ?)");
 
-        $stmt->bind_param("ssss", $fullname, $contact, $contact, $services);
+        $stmt->bind_param("ssss", $fullname, $email, $contact, $services);
 
         if ($stmt->execute()) {
             // Data transferred successfully to 'tblcustomers' table in 'makeover_admin' database
