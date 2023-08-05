@@ -131,7 +131,7 @@ const duplicateCheckUrl = `../php/check_user.php?timestamp=${Date.now()}`;
             const data = await response.text();
             if (data === "true") {
                 // Display error message for duplicate user
-                const errorMessageElement = document.getElementById('error-message');
+                const errorMessageElement = document.getElementById('error-message2');
                 if (errorMessageElement) {
                     errorMessageElement.textContent = 'Error: Username or Email already exists.';
                     errorMessageElement.style.color = 'red';
@@ -153,7 +153,7 @@ const duplicateCheckUrl = `../php/check_user.php?timestamp=${Date.now()}`;
         return;
     }
 
-    loginForm.addEventListener('submit', (event) => {
+    loginForm.addEventListener('submit', async(event) => {
         event.preventDefault();
 
         const emailInputLogin = document.getElementById('email1');
@@ -172,8 +172,33 @@ const duplicateCheckUrl = `../php/check_user.php?timestamp=${Date.now()}`;
             alert('Password should have at least 8 characters, 1 capital letter, and 1 special character.');
             return;
         }
+    // Check for duplicate entries with a timestamp to prevent caching
+    const duplicateCheckUrl = `../php/check_user2.php?timestamp=${Date.now()}`;
+     const formData = new FormData();
+    formData.append('email', emailValue);
+    formData.append('password', passwordValue);
 
-        // If all validations pass, manually submit the form
-        loginForm.submit();
+     try {
+     const response = await fetch(duplicateCheckUrl, {
+         method: 'POST',
+         body: formData
+     });
+
+     const data = await response.text();
+     if (data === "false") {
+         // Display error message "Please register first" in red below the login title
+         const errorMessageElement = document.getElementById('error-message');
+         errorMessageElement.textContent = 'Please register first.';
+         errorMessageElement.style.color = 'red';
+         
+         return;
+         }
+
+        // If login data is matched and exists in the database, submit the form
+      loginForm.submit();
+         } catch (error) {
+         console.error("Error checking for duplicate user:", error);
+         alert("An error occurred while processing the login. Please try again later.");
+        }
     });
 });
