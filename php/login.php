@@ -18,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Login successful, set the $_SESSION['username'] variable and redirect to the appointment page
             $row = $result->fetch_assoc();
             $_SESSION['username'] = $row['username']; // Assuming the 'username' field exists in the 'users' table
-            header("Location: http://localhost/Makeover/html/Appointment2.html");
+            header("Location: http://localhost/Makeover/html/Appointment.html");
             exit;
         } else {
             // Login failed, redirect back to the login page with an error message

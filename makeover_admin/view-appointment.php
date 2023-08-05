@@ -175,10 +175,6 @@ if($row['Status']=="2")
   </tr>
 
 
-<tr>
-<th>Remark date</th>
-<td><?php echo $row['RemarkDate']; ?>  </td></tr>
-
 						</table>
 						<?php } ?>
 						<?php } ?>

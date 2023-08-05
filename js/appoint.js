@@ -1,3 +1,29 @@
+document.addEventListener("DOMContentLoaded", function () {
+  // Logout link functionality
+  const logoutLink = document.getElementById("logout-link3");
+  logoutLink.addEventListener("click", function (e) {
+    e.preventDefault();
+    const confirmationPopup = document.createElement("div");
+    confirmationPopup.classList.add("confirmation-popup");
+    confirmationPopup.innerHTML = `
+      <p>Are you sure you want to logout?</p>
+      <button id="logout-yes" class="btn">Yes</button>
+      <button id="logout-no" class="btn">No</button>
+    `;
+
+    document.body.appendChild(confirmationPopup);
+    const logoutYesButton = document.getElementById("logout-yes");
+    const logoutNoButton = document.getElementById("logout-no");
+
+    logoutYesButton.addEventListener("click", function () {
+      window.location.href = "http://localhost/Makeover/html/login.html";
+      document.body.removeChild(confirmationPopup);
+    });
+
+    logoutNoButton.addEventListener("click", function () {
+      document.body.removeChild(confirmationPopup);
+    });
+  });
 
   function validateForm(event) {
     event.preventDefault(); // Prevent form submission
@@ -85,4 +111,4 @@
 
   const bookButton = document.getElementById("bookButton");
   bookButton.addEventListener("click", validateForm);
-
+});
