@@ -12,10 +12,10 @@ $selectedTime = $_POST['myDate'];
 $fullname = $firstName . " " . $lastName; // Concatenate the full name separately
 
 // Use prepared statements to prevent SQL injection
-$stmtUsers = $conn->prepare("INSERT INTO users (username, email, firstname, lastname, contact) 
-                            VALUES (?, ?, ?, ?, ?)");
+$stmtUsers = $conn->prepare("INSERT INTO users (firstname, lastname, contact) 
+                            VALUES (?, ?, ?)");
 
-$stmtUsers->bind_param("sssss", $fullname, $email, $firstName, $lastName, $contact);
+$stmtUsers->bind_param("sss", $firstName, $lastName, $contact);
 
 if ($stmtUsers->execute()) {
     // Data insertion into 'users' table successful
