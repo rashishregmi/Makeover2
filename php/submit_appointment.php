@@ -99,9 +99,12 @@ if (
     $stmtAppointments->close();
     $stmtTblAppointments->close();
     $stmtCustomers->close();
-    $stmtUpdateUser->close(); // Close the statement after use
+   
 } else {
     echo "Error: Please fill in all required fields.";
+}
+if ($stmtUpdateUser !== null) {
+    $stmtUpdateUser->close();
 }
 
 $conn->close();
