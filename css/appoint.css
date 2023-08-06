@@ -1,13 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,300&display=swap');
 @import url('https://fonts.cdnfonts.com/css/poppins');
-@font-face {
-  font-family: 'Gill Sans';
-  src: url('https://fonts.cdnfonts.com/css/gill-sans-2') format('woff2'),
-  url('https://fonts.cdnfonts.com/css/gill-sans-2') format('woff');
-  font-display: swap;  
-}
-
-
 * {
     margin: 0;
     padding: 0;
@@ -51,7 +43,7 @@ span.logo {
     font-family: 'Pacifico', cursive;
     background-image: linear-gradient(90deg, #FF1493, #00BFFF);
     background-clip: text;
-    -webkit-background-clip: text; 
+    -webkit-background-clip: text; /* For Webkit compatibility */
     color: transparent;
     position: relative;
     left: -25px;
@@ -102,8 +94,6 @@ nav ul li a {
      
 }
 
- 
-
 nav ul li a:hover {
     color: blue;
     font-weight: 400;
@@ -112,7 +102,8 @@ nav ul li a:hover {
 nav ul li a:hover::after {
     width: calc(100% - 50px);
 }
- 
+
+  
   .confirmation-popup {
     position: fixed;
     top: 30%;
