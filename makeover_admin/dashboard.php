@@ -109,7 +109,7 @@ $totalaccapt=mysqli_num_rows($query3);
 				<div class="row calender widget-shadow">
 					<div class="row-one">
 					<div class="col-md-4 widget">
-						<?php $query4=mysqli_query($con,"Select * from tblappointment where Status='1'");
+						<?php $query4=mysqli_query($con,"Select * from tblappointment where Status='2'");
 $totalrejapt=mysqli_num_rows($query4);
 ?>
 						<div class="stats-left ">
