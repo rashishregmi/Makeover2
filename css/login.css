@@ -276,7 +276,7 @@ nav ul li a:hover::after {
 }
 
 body{
-    background-image: url("./../../makeover/images/lightblue.jpeg");
+    background-image: url("../../");
     background-repeat: no-repeat;
     background-size: cover;
     background-size: cover;
