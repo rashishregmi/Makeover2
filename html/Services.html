@@ -23,7 +23,7 @@
                     <li><a href="./../html/Home.html" class="links">Home</a></li>
                     <li><a href="./../html/About.html" class="links">About</a></li>
                     <li><a href="./../html/Services.html" class="links">Service</a></li>
-                    <li><a href="./../html/Appointment.html" class="links">Appointment</a></li>
+                    <li><a href="./../html/login.html" class="links">Appointment</a></li>
                     <li><a href="./../html/Contact.html" class="links">Contact</a></li>
                     <li><a href="./../html/login.html" class="links">Login</a></li>
                 </ul>
@@ -162,39 +162,6 @@
                         </div>
                         <div class="copyright">&copy; 2023 Makeover.com</div>
                     </div>
-            </footer>
-            <script>
-                // Function to extract and save services
-                function extractAndSaveService() {
-                    var serviceElements = document.querySelectorAll(".service-box .caption h3");
-            
-                    serviceElements.forEach(function(element) {
-                        var text = element.innerText;
-                        var serviceName = text.split('\u00A0')[0].trim();
-                        var serviceCost = parseInt(text.match(/\d+/)[0]);
-            
-                        // Log the extracted values for verification
-                        console.log("Extracted Service Name: " + serviceName);
-                        console.log("Extracted Service Cost: " + serviceCost);
-            
-                        // Send the data to the PHP script for saving
-                        var xhr = new XMLHttpRequest();
-                       
-                        xhr.open("POST", "../makeover_admin/save_services.php", true);
-                         
-                        xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-                        xhr.send("service_name=" + encodeURIComponent(serviceName) + "&service_cost=" + serviceCost);
-                         
-                    });
-                }
-            
-                // Call the function when the DOM is fully loaded
-                document.addEventListener("DOMContentLoaded", function() {
-                    extractAndSaveService();
-                });
-                // alert("Services extracted and saved!");
-            </script>
-            
-            
+            </footer>    
     </body>
     </html>
