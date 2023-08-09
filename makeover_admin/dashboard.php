@@ -67,7 +67,7 @@ if (strlen($_SESSION['bpmsaid']==0)) {
 $totalcust=mysqli_num_rows($query1);
 ?>
 						<div class="stats-left ">
-							<h5>Total</h5>
+							<h5>Total</h5> 
 							<h4>Customer</h4>
 						</div>
 						<div class="stats-right">
@@ -122,32 +122,19 @@ $totalrejapt=mysqli_num_rows($query4);
 						<div class="clearfix"> </div>	
 					</div>
 					<div class="col-md-4 widget states-mdl">
-						<?php $query5=mysqli_query($con,"Select * from  tblservices");
-$totalser=mysqli_num_rows($query5);
-?>
+						 
 						<div class="stats-left">
 							<h5>Total</h5>
 							<h4>Services</h4>
 						</div>
 						<div class="stats-right">
-							<label> <?php echo $totalser;?></label>
+  						<label>8</label>
 						</div>
+
 						<div class="clearfix"> </div>	
 					</div>
-					<div class="col-md-4 widget states-last">
-						<?php
-//todays sale
- $query6=mysqli_query($con,"select tblinvoice.ServiceId as ServiceId, tblservices.Cost
- from tblinvoice 
-  join tblservices  on tblservices.ID=tblinvoice.ServiceId where date(PostingDate)=CURDATE();");
-while($row=mysqli_fetch_array($query6))
-{
-$todays_sale=$row['Cost'];
-$todysale+=$todays_sale;
-
-}
- ?>					
-					</div>
+									
+					  
 				</div>
 				<div class="clearfix"> </div>
 			</div>
