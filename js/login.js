@@ -193,7 +193,13 @@ const duplicateCheckUrl = `../php/check_user.php?timestamp=${Date.now()}`;
          
          return;
          }
-
+         else if (data === "incorrect") {
+            // Display error message for incorrect password
+            const errorMessageElement = document.getElementById('error-message');
+            errorMessageElement.textContent = 'Incorrect password. Please try again.';
+            errorMessageElement.style.color = 'red';
+            return;
+        }
         // If login data is matched and exists in the database, submit the form
       loginForm.submit();
          } catch (error) {

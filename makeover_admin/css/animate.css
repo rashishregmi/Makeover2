@@ -1,12 +1,9 @@
-@charset "UTF-8";
 
-/*!
+/*
 Animate.css - http://daneden.me/animate
-Licensed under the MIT license - http://opensource.org/licenses/MIT
-
-Copyright (c) 2013 Daniel Eden
+ 
 */
-
+@charset "UTF-8";
 @-webkit-keyframes flipInX {
   0% {
     -webkit-transform: perspective(400px) rotateX(90deg);

@@ -16,8 +16,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // User with the same email and password exists
         echo "true";
     } else {
-        // User with the same email and password does not exist
-        echo "false";
+        // Check if user exists with the provided email
+        $sql = "SELECT * FROM users WHERE email = ?";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("s", $email);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        if ($result->num_rows > 0) {
+            // User with the provided email exists, but password is incorrect
+            echo "incorrect";
+        } else {
+            // User with the provided email does not exist
+            echo "false";
+        }
     }
     $stmt->close();
 }
