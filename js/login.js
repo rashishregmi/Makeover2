@@ -1,4 +1,4 @@
-// Function to validate input fields in a form box
+ // Function to validate input fields in a form box
 function validateInputFields(formBoxClass) {
     const inputFields = document.querySelectorAll(`${formBoxClass} input`);
     let isValid = true;
@@ -112,7 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         if (!termsCheckbox.checked) {
-            alert('Please agree to the terms & conditions.');
+            alert('Please agree to the terms & conditions.'); 
             return;
         }
 
