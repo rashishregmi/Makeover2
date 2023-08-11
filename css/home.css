@@ -204,7 +204,7 @@ color: lightblue;
     flex-direction: column;
     justify-content: center;
     background-color:rgb(33, 33, 33); 
-    text-align: justify center;
+    text-align: justify;
     padding-left: 7rem;
     position: relative;
  }
