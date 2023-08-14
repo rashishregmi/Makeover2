@@ -28,9 +28,7 @@
             </li>
            
         
-            <li>
-              <a href="add-customer.php" class="chart-nav"><i class="fa fa-user nav_icon"></i>Add Customer</a>
-            </li>
+            
              <li>
               <a href="customer-list.php" class="chart-nav"><i class="fa fa-users nav_icon"></i>Customer List</a>
             </li>

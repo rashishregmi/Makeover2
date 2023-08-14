@@ -7,13 +7,19 @@ if (strlen($_SESSION['bpmsaid']) == 0) {
     header('location:logout.php');
 } else {
     if (isset($_POST['submit'])) {
-        $name = $_POST['name'];
+        $full_name = $_POST['name'];  // Full name from the form
         $email = $_POST['email'];
         $mobilenum = $_POST['mobilenum'];
-        $details = $_POST['details'];
-
-        $query = mysqli_query($con, "INSERT INTO tblcustomers (Name, Email, MobileNumber, Details) VALUES ('$name', '$email', '$mobilenum', '$details')");
-
+         
+        $password = '';  // You need to decide how you'll handle passwords in your application
+    
+        // Splitting the full name into first_name and last_name
+        $name_parts = explode(" ", $full_name);
+        $first_name = $name_parts[0];  // First part is the first name
+        $last_name = isset($name_parts[1]) ? $name_parts[1] : '';  // Second part is the last name, if available
+    
+        $query = mysqli_query($con, "INSERT INTO users (email, password, firstname, lastname, contact) 
+                                     VALUES ('$email', '$password', '$first_name', '$last_name', '$mobilenum')");
         if ($query) {
             echo "<script>alert('Customer has been added.');</script>";
             echo "<script>window.location.href = 'add-customer.php'</script>";
@@ -99,10 +105,7 @@ if (strlen($_SESSION['bpmsaid']) == 0) {
                                     <label for="exampleInputEmail1">Mobile Number</label>
                                     <input type="text" class="form-control" id="mobilenum" name="mobilenum" placeholder="Mobile Number" value="" required="true" maxlength="10" pattern="[0-9]+">
                                 </div>
-                                <div class="form-group">
-                                    <label for="exampleInputEmail1">Details</label>
-                                    <textarea type="text" class="form-control" id="details" name="details" placeholder="Details" required="true" rows="12" cols="4"></textarea>
-                                </div>
+                                
 
                                 <button type="submit" name="submit" class="btn btn-default">Add</button>
                             </form>
