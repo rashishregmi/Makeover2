@@ -62,13 +62,14 @@ if (strlen($_SESSION['bpmsaid']==0)) {
 						<h4>Accepted Appointment:</h4>
 						<table class="table table-bordered"> <thead> <tr> <th>#</th> <th> Appointment Number</th> <th>Name</th><th>Mobile Number</th> <th>Appointment Date</th><th>Appointment Time</th><th>Action</th> </tr> </thead> <tbody>
 <?php
-$ret=mysqli_query($con,"select *from  tblappointment where Status='1'");
+$ret=mysqli_query($con,"select *from appointments where Status='1'");
 $cnt=1;
 while ($row=mysqli_fetch_array($ret)) {
 
 ?>
 
-						 <tr> <th scope="row"><?php echo $cnt;?></th> <td><?php  echo $row['AptNumber'];?></td> <td><?php  echo $row['Name'];?></td><td><?php  echo $row['PhoneNumber'];?></td><td><?php  echo $row['AptDate'];?></td> <td><?php  echo $row['AptTime'];?></td> <td><a href="view-appointment.php?viewid=<?php echo $row['ID'];?>">View</a></td> </tr>   <?php 
+						
+					<tr> <th scope="row"><?php echo $cnt;?></th> <td><?php  echo $row['AptNumber'];?></td> <td><?php echo $row['first_name'] . ' ' . $row['last_name']; ?></td><td><?php  echo $row['contact'];?></td><td><?php  echo $row['selected_date'];?></td> <td><?php  echo $row['selected_time'];?></td> <td><a href="view-appointment.php?viewid=<?php echo $row['appointment_id'];?>">View</a></td> </tr>   <?php 
 $cnt=$cnt+1;
 }?></tbody> </table> 
 					</div>

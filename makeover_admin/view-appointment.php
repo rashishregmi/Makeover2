@@ -15,7 +15,7 @@ if(isset($_POST['submit']))
      
     
      
-   $query=mysqli_query($con, "update  tblappointment set Remark='$remark',Status='$status' where ID='$cid'");
+   $query=mysqli_query($con, "update  appointments set Remark='$remark',Status='$status' where appointment_id='$cid'");
     if ($query) {
     $msg="All remark has been updated.";
   }
@@ -85,7 +85,7 @@ if(isset($_POST['submit']))
 						<h4>View Appointment:</h4>
 						<?php
 $cid=$_GET['viewid'];
-$ret=mysqli_query($con,"select * from tblappointment where ID='$cid'");
+$ret=mysqli_query($con,"select * from appointments where appointment_id='$cid'");
 $cnt=1;
 while ($row=mysqli_fetch_array($ret)) {
 
@@ -97,30 +97,30 @@ while ($row=mysqli_fetch_array($ret)) {
   </tr>
   <tr>
 <th>Name</th>
-    <td><?php  echo $row['Name'];?></td>
+    <td><?php echo $row['first_name'] . ' ' . $row['last_name']; ?></td>
   </tr>
 
 <tr>
     <th>Email</th>
-    <td><?php  echo $row['Email'];?></td>
+    <td><?php  echo $row['email'];?></td>
   </tr>
    <tr>
     <th>Mobile Number</th>
-    <td><?php  echo $row['PhoneNumber'];?></td>
+    <td><?php  echo $row['contact'];?></td>
   </tr>
    <tr>
     <th>Appointment Date</th>
-    <td><?php  echo $row['AptDate'];?></td>
+    <td><?php  echo $row['selected_date'];?></td>
   </tr>
  
 <tr>
     <th>Appointment Time</th>
-    <td><?php  echo $row['AptTime'];?></td>
+    <td><?php  echo $row['selected_time'];?></td>
   </tr>
   
   <tr>
     <th>Services</th>
-    <td><?php  echo $row['Services'];?></td>
+    <td><?php  echo $row['services'];?></td>
   </tr>
    
   
