@@ -1,6 +1,7 @@
 <?php
 session_start();
 error_reporting(0);
+ 
 include('includes/dbconnection.php');
 if (strlen($_SESSION['bpmsaid']==0)) {
   header('location:logout.php');
@@ -63,7 +64,7 @@ if (strlen($_SESSION['bpmsaid']==0)) {
 				<div class="row calender widget-shadow">
 					<div class="row-one">
 					<div class="col-md-4 widget">
-						<?php $query1=mysqli_query($con,"Select * from tblcustomers");
+						<?php $query1=mysqli_query($con,"Select * from users");
 $totalcust=mysqli_num_rows($query1);
 ?>
 						<div class="stats-left ">
@@ -75,21 +76,26 @@ $totalcust=mysqli_num_rows($query1);
 						</div>
 						<div class="clearfix"> </div>	
 					</div>
-					<div class="col-md-4 widget states-mdl">
-						<?php $query2=mysqli_query($con,"Select * from tblappointment");
+
+					 <div class="col-md-4 widget states-mdl">
+					 <?php $query2=mysqli_query($con,"Select * from appointments");
 $totalappointment=mysqli_num_rows($query2);
 ?>
-						<div class="stats-left">
-							<h5>Total</h5>
-							<h4>Appointment</h4>
-						</div>
-						<div class="stats-right">
-							<label> <?php echo $totalappointment;?></label>
-						</div>
-						<div class="clearfix"> </div>	
-					</div>
+
+    			<div class="stats-left">
+       		 <h5>Total</h5>
+       		 <h4>Appointment</h4>
+   		 </div>
+    		<div class="stats-right">
+      		  <label><?php echo $totalappointment; ?></label>
+    		</div>
+    	<div class="clearfix"></div>
+</div>
+
+
+
 					<div class="col-md-4 widget states-last">
-						<?php $query3=mysqli_query($con,"Select * from tblappointment where Status='1'");
+						<?php $query3=mysqli_query($con,"Select * from appointments where Status='1'");
 $totalaccapt=mysqli_num_rows($query3);
 ?>
 						<div class="stats-left">
@@ -109,7 +115,7 @@ $totalaccapt=mysqli_num_rows($query3);
 				<div class="row calender widget-shadow">
 					<div class="row-one">
 					<div class="col-md-4 widget">
-						<?php $query4=mysqli_query($con,"Select * from tblappointment where Status='2'");
+						<?php $query4=mysqli_query($con,"Select * from appointments where Status='2'");
 $totalrejapt=mysqli_num_rows($query4);
 ?>
 						<div class="stats-left ">

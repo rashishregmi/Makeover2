@@ -43,9 +43,9 @@ if (
         $user_id = $userRow['user_id'];
     } else {
         // User does not exist, insert into the 'users' table first
-        $insertUserSQL = "INSERT INTO users (firstname, lastname, contact, email, username) VALUES (?, ?, ?, ?, ?)";
+        $insertUserSQL = "INSERT INTO users (firstname, lastname, contact, email,services) VALUES (?, ?, ?, ?, ?)";
         $stmtInsertUser = $conn->prepare($insertUserSQL);
-        $stmtInsertUser->bind_param("sssss", $firstName, $lastName, $contact, $email, $username);
+        $stmtInsertUser->bind_param("sssss", $firstName, $lastName, $contact, $email, $services);
 
         if ($stmtInsertUser->execute()) {
             // User inserted successfully, get the newly created user_id
@@ -59,25 +59,14 @@ if (
     }
 
     // Continue with the code to insert data into the 'appointments' table
-    $stmtAppointments = $conn->prepare("INSERT INTO appointments (user_id, first_name, last_name, contact, email, services, selected_date, selected_time, username) 
-                                       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    $aptNumber = mt_rand(100000000, 999999999);
+    $stmtAppointments = $conn->prepare("INSERT INTO appointments (user_id, first_name, last_name, contact, email, services, selected_date, selected_time, username,AptNumber) 
+                                       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
-    $stmtAppointments->bind_param("issssssss", $user_id, $firstName, $lastName, $contact, $email, $services, $selectedDate, $selectedTime, $username);
+    $stmtAppointments->bind_param("issssssssi", $user_id, $firstName, $lastName, $contact, $email, $services, $selectedDate, $selectedTime, $username,$aptNumber);
 
     if ($stmtAppointments->execute()) {
-        // Data insertion into 'appointments' table successful
-        $lastAppointmentId = $stmtAppointments->insert_id;
-
-        // Continue with the code to transfer data to 'tblappointment' table in 'makeover_admin' database
-        $aptNumber = mt_rand(100000000, 999999999); // Generate a random 9-digit number for AptNumber
-        $stmtTblAppointments = $conn->prepare("INSERT INTO makeover_admin.tblappointment (AptNumber, Name, Email, PhoneNumber, AptDate, AptTime, Services) 
-                                              VALUES (?, ?, ?, ?, ?, ?, ?)");
-
-        $stmtTblAppointments->bind_param("issssss", $aptNumber, $fullname, $email, $contact, $selectedDate, $selectedTime, $services);
-
-        if ($stmtTblAppointments->execute()) {
-            // Data transferred successfully to 'tblappointment' table in 'makeover_admin' database
-            // Continue with the code to transfer data to 'tblcustomers' table in 'makeover_admin' database
+        
             $stmtCustomers = $conn->prepare("INSERT INTO makeover_admin.tblcustomers (Name, Email, MobileNumber, Details) 
                                             VALUES (?, ?, ?, ?)");
 
@@ -89,15 +78,13 @@ if (
             } else {
                 echo "Error: " . $stmtCustomers->error;
             }
-        } else {
-            echo "Error: " . $stmtTblAppointments->error;
-        }
+          
     } else {
         echo "Error: " . $stmtAppointments->error;
     }
 
     $stmtAppointments->close();
-    $stmtTblAppointments->close();
+     
     $stmtCustomers->close();
    
 } else {
