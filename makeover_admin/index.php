@@ -58,7 +58,7 @@ if(isset($_POST['login']))
 		<div id="page-wrapper" style="position: relative; max-height: 100vh;  padding-bottom: 150px; bottom:60px; ">
 
 			<div class="main-page login-page ">
-				<h3 class="title1">SignIn Page</h3>
+				<h3 class="title1">Sign In</h3>
 				<div class="widget-shadow">
 					<div class="login-top">
 						<h4>Makeover</h4>
@@ -76,13 +76,7 @@ if(isset($_POST['login']))
 								 
 								<div class="clearfix"> </div>
 							</div>
-							<div class="forgot-grid">
-								
-								<div class="forgot">
-									<a href="forgot-password.php">forgot password?</a>
-								</div>
-								<div class="clearfix"> </div>
-							</div>
+							 
 						</form>
 					</div>
 				</div>
