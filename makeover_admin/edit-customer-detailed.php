@@ -17,7 +17,7 @@ $details=$_POST['details'];
    
  $eid=$_GET['editid'];
      
-    $query=mysqli_query($con, "update  tblcustomers set Name='$name',Email='$email',MobileNumber='$mobilenum' ,Details='$details' where id='$eid' ");
+    $query=mysqli_query($con, "update  users set Name='$name',Email='$email',MobileNumber='$mobilenum' ,Details='$details' where id='$eid' ");
     if ($query) {
     $msg="Customer Detail has been Updated.";
   }
@@ -86,15 +86,15 @@ $details=$_POST['details'];
   }  ?> </p>
   <?php
  $cid=$_GET['editid'];
-$ret=mysqli_query($con,"select * from  tblcustomers where id='$cid'");
+$ret=mysqli_query($con,"select * from  users where id='$cid'");
 $cnt=1;
 while ($row=mysqli_fetch_array($ret)) {
 
 ?> 
 
   
-							 <div class="form-group"> <label for="exampleInputEmail1">Name</label> <input type="text" class="form-control" id="name" name="name"  value="<?php  echo $row['Name'];?>" required="true"> </div> <div class="form-group"> <label for="exampleInputPassword1">Email</label> <input type="text" id="email" name="email" class="form-control"  value="<?php  echo $row['Email'];?>" required="true"> </div>
-							 <div class="form-group"> <label for="exampleInputPassword1">Mobile Number</label> <input type="text" id="mobilenum" name="mobilenum" class="form-control"  value="<?php  echo $row['MobileNumber'];?>" required="true"> </div>
+							 <div class="form-group"> <label for="exampleInputEmail1">Name</label> <input type="text" class="form-control" id="name" name="name"  value="<?php echo $row['first_name'] . ' ' . $row['last_name']; ?>" required="true"> </div> <div class="form-group"> <label for="exampleInputPassword1">Email</label> <input type="text" id="email" name="email" class="form-control"  value="<?php  echo $row['email'];?>" required="true"> </div>
+							 <div class="form-group"> <label for="exampleInputPassword1">Mobile Number</label> <input type="text" id="mobilenum" name="mobilenum" class="form-control"  value="<?php  echo $row['contact'];?>" required="true"> </div>
 							 <div class="form-group">  
                    
  
