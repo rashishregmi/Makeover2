@@ -129,7 +129,7 @@ const duplicateCheckUrl = `../php/check_user.php?timestamp=${Date.now()}`;
                 // Display error message for duplicate user
                 const errorMessageElement = document.getElementById('error-message2');
                 if (errorMessageElement) {
-                    errorMessageElement.textContent = 'Error: Username or Email already exists.';
+                    errorMessageElement.textContent = 'Error: Email already exists.';
                     errorMessageElement.style.color = 'red';
                 }
                 return;
