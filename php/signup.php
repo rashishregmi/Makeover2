@@ -32,6 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     // Registration successful, redirect back to login page with a success message
                     session_start();
                     $_SESSION['user_id'] = $stmt->insert_id;
+                    $_SESSION['email'] = $email;
                     header("Location: http://localhost/Makeover/html/login.html#success");
                     exit;
                 } else {

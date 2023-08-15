@@ -21,6 +21,9 @@ if (
     
 
     // Check if the user already exists in the 'users' table based on email
+    session_start(); // Start the session
+    $email = $_SESSION['email']; // Retrieve the email from the session
+
     $getUserSQL = "SELECT user_id FROM users WHERE email = ?";
     $stmtGetUser = $conn->prepare($getUserSQL);
     $stmtGetUser->bind_param("s", $email);
