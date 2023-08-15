@@ -18,7 +18,7 @@ if (
     $selectedDate = $_POST['myCalender'];
     $selectedTime = $_POST['myDate'];
     $fullname = $firstName . " " . $lastName; // Concatenate the full name separately
-    $username = $firstName . $lastName; // Combine first name and last name to create the username
+    
 
     // Check if the user already exists in the 'users' table based on email
     $getUserSQL = "SELECT user_id FROM users WHERE email = ?";
@@ -43,9 +43,9 @@ if (
         $user_id = $userRow['user_id'];
     } else {
         // User does not exist, insert into the 'users' table first
-        $insertUserSQL = "INSERT INTO users (firstname, lastname, contact, email,services) VALUES (?, ?, ?, ?, ?)";
+        $insertUserSQL = "INSERT INTO users (firstname, lastname, contact) VALUES (?, ?, ?)";
         $stmtInsertUser = $conn->prepare($insertUserSQL);
-        $stmtInsertUser->bind_param("sssss", $firstName, $lastName, $contact, $email, $services);
+        $stmtInsertUser->bind_param("sss", $firstName, $lastName, $contact);
 
         if ($stmtInsertUser->execute()) {
             // User inserted successfully, get the newly created user_id
@@ -60,42 +60,28 @@ if (
 
     // Continue with the code to insert data into the 'appointments' table
     $aptNumber = mt_rand(100000000, 999999999);
-    $stmtAppointments = $conn->prepare("INSERT INTO appointments (user_id, first_name, last_name, contact, email, services, selected_date, selected_time, username,AptNumber) 
-                                       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmtAppointments = $conn->prepare("INSERT INTO appointments (user_id, first_name, last_name, contact, email, services, selected_date, selected_time,AptNumber) 
+                                       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
-    $stmtAppointments->bind_param("issssssssi", $user_id, $firstName, $lastName, $contact, $email, $services, $selectedDate, $selectedTime, $username,$aptNumber);
+    $stmtAppointments->bind_param("isssssssi", $user_id, $firstName, $lastName, $contact, $email, $services, $selectedDate, $selectedTime, $aptNumber);
 
     if ($stmtAppointments->execute()) {
-        
-            $stmtCustomers = $conn->prepare("INSERT INTO makeover_admin.tblcustomers (Name, Email, MobileNumber, Details) 
-                                            VALUES (?, ?, ?, ?)");
-
-            $stmtCustomers->bind_param("ssss", $fullname, $email, $contact, $services);
-
-            if ($stmtCustomers->execute()) {
-                // Data transferred successfully to 'tblcustomers' table in 'makeover_admin' database
-                echo "Appointment booked successfully!";
-            } else {
-                echo "Error: " . $stmtCustomers->error;
-            }
-          
+        echo "Appointment booked successfully!";
     } else {
         echo "Error: " . $stmtAppointments->error;
     }
 
     $stmtAppointments->close();
-     
-    $stmtCustomers->close();
-   
+
+    if (isset($stmtUpdateUser)) {
+        $stmtUpdateUser->close();
+    }
+
+    $conn->close();
+
+    header("Location: http://localhost/Makeover/html/Appointment.html");
+    exit;
 } else {
     echo "Error: Please fill in all required fields.";
 }
-if ($stmtUpdateUser !== null) {
-    $stmtUpdateUser->close();
-}
-
-$conn->close();
-
-header("Location: http://localhost/Makeover/html/Appointment.html");
-exit;
 ?>

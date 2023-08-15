@@ -86,16 +86,12 @@ document.addEventListener('DOMContentLoaded', () => {
     registerForm.addEventListener('submit', async (event) => {
         event.preventDefault();
 
-        const usernameInput = document.getElementById('username');
+         
         const emailInput = document.getElementById('email');
         const passwordInput = document.getElementById('password');
         const termsCheckbox = document.getElementById('terms');
 
-        const usernameValue = usernameInput.value.trim();
-        if (usernameValue.length < 3) {
-            alert('Username should have at least 3 characters.');
-            return;
-        }
+        
 
         const emailValue = emailInput.value.trim();
         const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -119,7 +115,7 @@ document.addEventListener('DOMContentLoaded', () => {
 // Check for duplicate entries with a timestamp to prevent caching
 const duplicateCheckUrl = `../php/check_user.php?timestamp=${Date.now()}`;
         const formData = new FormData();
-        formData.append('username', usernameValue);
+         
         formData.append('email', emailValue);
 
         try {

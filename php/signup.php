@@ -7,26 +7,25 @@ require '../php/connection.php';
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     // Check if all required fields are provided
-    if (isset($_POST["username"]) && isset($_POST["email"]) && isset($_POST["password"])) {
-        $username = $_POST["username"];
+    if (isset($_POST["email"]) && isset($_POST["password"])) {
         $email = $_POST["email"];
         $password = $_POST["password"];
 
-        // Check for duplicate entries
-        $check_duplicate_sql = "SELECT * FROM users WHERE username = ? OR email = ?";
+        // Check for duplicate email entries
+        $check_duplicate_sql = "SELECT * FROM users WHERE email = ?";
         $check_stmt = $conn->prepare($check_duplicate_sql);
-        $check_stmt->bind_param("ss", $username, $email);
+        $check_stmt->bind_param("s", $email);
         $check_stmt->execute();
         $check_result = $check_stmt->get_result();
 
         if ($check_result->num_rows > 0) {
-            // User with the same username or email already exists
-            $errorMessage = "Error: The username or email is already registered.";
+            // User with the same email already exists
+            $errorMessage = "Error: The email is already registered.";
         } else {
             // Insert the new user if no duplicate entries found
-            $insert_sql = "INSERT INTO users (username, email, password) VALUES (?, ?, ?)";
+            $insert_sql = "INSERT INTO users (email, password) VALUES (?, ?)";
             $stmt = $conn->prepare($insert_sql);
-            $stmt->bind_param("sss", $username, $email, $password);
+            $stmt->bind_param("ss", $email, $password);
 
             try {
                 if ($stmt->execute()) {
@@ -46,7 +45,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $stmt->close();
         }
     } else {
-        // Missing required fields: username, email, or password
+        // Missing required fields: email or password
         $errorMessage = "Error: Please provide all required fields.";
     }
 }
