@@ -17,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($result->num_rows > 0) {
             // Login successful, set session variables and redirect to the appointment page
             $row = $result->fetch_assoc();
-            $_SESSION['user_id'] = $row['user_id']; // Assuming the 'user_id' field exists in the 'users' table
+            // $_SESSION['user_id'] = $row['user_id']; 
             $_SESSION['firstname'] = $row['firstname']; // Assuming the 'firstname' field exists in the 'users' table
             $_SESSION['lastname'] = $row['lastname']; // Assuming the 'lastname' field exists in the 'users' table
             header("Location: http://localhost/Makeover/html/Appointment.html");

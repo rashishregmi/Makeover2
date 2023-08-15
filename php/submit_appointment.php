@@ -7,7 +7,7 @@ if (
     isset($_POST['firstname']) && !empty($_POST['firstname']) &&
     isset($_POST['lastname']) && !empty($_POST['lastname']) &&
     isset($_POST['contact']) && !empty($_POST['contact']) &&
-    isset($_POST['email']) && !empty($_POST['email']) &&
+
     isset($_POST['topics']) && is_array($_POST['topics'])
 ) {
     $firstName = $_POST['firstname'];
