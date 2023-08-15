@@ -35,7 +35,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const firstName = document.getElementById("firstname").value.trim();
     const lastName = document.getElementById("lastname").value.trim();
     const contact = document.getElementById("contact").value.trim();
-    const email = document.getElementById("email").value.trim();
     const checkboxes = document.querySelectorAll("input[type=checkbox]:checked");
     const calendarDate = document.querySelector("input[type=date]").value;
     const time = document.querySelector("input[type=time]").value.trim();
@@ -59,11 +58,7 @@ document.addEventListener("DOMContentLoaded", function () {
       errorMessage = "Contact number should start with '98' or '97' and be 10 digits long.";
     }
 
-    // Email Validation
-    else if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
-      errorMessage = "Invalid email address.";
-    }
-
+     
     // Check if at least one checkbox is checked
     else if (checkboxes.length === 0) {
       errorMessage = "Please select at least one service.";
