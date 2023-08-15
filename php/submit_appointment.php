@@ -40,6 +40,7 @@ if (
 
         // Get the user_id from the existing user
         $userRow = $getUserResult->fetch_assoc();
+        session_start();
         $user_id = $userRow['user_id'];
     } else {
         // User does not exist, insert into the 'users' table first
