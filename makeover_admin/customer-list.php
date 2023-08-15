@@ -68,7 +68,7 @@ while ($row=mysqli_fetch_array($ret)) {
 
 ?>
 
-						 <tr> <th scope="row"><?php echo $cnt;?></th> <td><?php echo $row['firstname'] . ' ' . $row['lastname']; ?></td> <td><?php  echo $row['contact'];?></td><td><?php  echo $row['email'];?></td> <td><a href="edit-customer-detailed.php?editid=<?php echo $row['id'];?>">Edit</a> </td> </tr>   <?php 
+						 <tr> <th scope="row"><?php echo $cnt;?></th> <td><?php echo $row['firstname'] . ' ' . $row['lastname']; ?></td> <td><?php  echo $row['contact'];?></td><td><?php  echo $row['email'];?></td> <td><a href="edit-customer-detailed.php?editid=<?php echo $row['user_id'];?>">Edit</a> </td> </tr>   <?php 
 $cnt=$cnt+1;
 }?></tbody> </table> 
 					</div>

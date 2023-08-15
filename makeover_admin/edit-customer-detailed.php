@@ -6,27 +6,22 @@ if (strlen($_SESSION['bpmsaid']==0)) {
   header('location:logout.php');
   } else{
 
-if(isset($_POST['submit']))
-  {
-   $name=$_POST['name'];
-    $email=$_POST['email'];
-   $mobilenum=$_POST['mobilenum'];
-    $gender=$_POST['gender'];
-$details=$_POST['details'];
-   
- $eid=$_GET['editid'];
-     
-    $query=mysqli_query($con, "update  users set Name='$name',email='$email',contact='$mobilenum',Gender='$gender',Details='$details' where ID='$eid' ");
-    if ($query) {
-    $msg="Customer Detail has been Updated.";
-  }
-  else
-    {
-      $msg="Something Went Wrong. Please try again";
-    }
-
-  
-}
+	if (isset($_POST['submit'])) {
+		$firstname = $_POST['firstname'];
+		$lastname = $_POST['lastname'];
+		$email = $_POST['email'];
+		$mobilenum = $_POST['mobilenum'];
+	
+		$eid = $_GET['editid'];
+	
+		$query = mysqli_query($con, "UPDATE users SET firstname='$firstname', lastname='$lastname', email='$email', contact='$mobilenum' where user_id='$eid'");
+		if ($query) {
+			$msg = "Customer Detail has been Updated.";
+		} else {
+			$msg = "Something Went Wrong. Please try again";
+		}
+	}
+	
   ?>
 <!DOCTYPE HTML>
 <html>
@@ -85,37 +80,28 @@ $details=$_POST['details'];
   }  ?> </p>
   <?php
  $cid=$_GET['editid'];
-$ret=mysqli_query($con,"select * from  tblcustomers where ID='$cid'");
+$ret=mysqli_query($con,"select * from  users where user_id='$cid'");
 $cnt=1;
 while ($row=mysqli_fetch_array($ret)) {
 
 ?> 
 
-  
-							 <div class="form-group"> <label for="exampleInputEmail1">Name</label> <input type="text" class="form-control" id="name" name="name"  value="<?php  echo $row['Name'];?>" required="true"> </div> <div class="form-group"> <label for="exampleInputPassword1">Email</label> <input type="text" id="email" name="email" class="form-control"  value="<?php  echo $row['Email'];?>" required="true"> </div>
-							 <div class="form-group"> <label for="exampleInputPassword1">Mobile Number</label> <input type="text" id="mobilenum" name="mobilenum" class="form-control"  value="<?php  echo $row['MobileNumber'];?>" required="true"> </div>
-							 <div class="form-group"> <label for="exampleInputPassword1">Gender</label> <?php if($row['Gender']=="Male")
-{?><input type="radio" id="gender" name="gender" value="Male" checked="true">Male
+					<div class="form-group">
+    		<label for="exampleInputEmail1">First Name</label>
+    		<input type="text" class="form-control" id="firstname" name="firstname" value="<?php echo $row['firstname']; ?>" required="true">
+			</div>
+			<div class="form-group">
+   			 <label for="exampleInputEmail1">Last Name</label>
+   			 <input type="text" class="form-control" id="lastname" name="lastname" value="<?php 	echo $row['lastname']; ?>" required="true">
+			</div>
+ 
 
-                     <input type="radio" name="gender" value="Female">Female
-                     <input type="radio" name="gender" value="Transgender">Transgender
-                   <?php } ?>
-<?php if($row['Gender']=="Female")
-{?><input type="radio" id="gender" name="gender" value="Male" >Male
+                                <div class="form-group"> <label for="exampleInputPassword1">Email</label> <input type="text" id="email" name="email" class="form-control"  value="<?php  echo $row['email'];?>" required="true"> </div>
+                                <div class="form-group"> <label for="exampleInputPassword1">Mobile Number</label> <input type="text" id="mobilenum" name="mobilenum" class="form-control"  value="<?php  echo $row['contact'];?>" required="true"> </div>
+                                
+                                <?php } ?>	
 
-                     <input type="radio" name="gender" value="Female" checked="true">Female
-                     <input type="radio" name="gender" value="Transgender">Transgender
-                   <?php } 
 
-                    else {?>
- <input type="radio" id="gender" name="gender" value="Male" >Male
-  <input type="radio" name="gender" value="Female" >Female
-  <input type="radio" name="gender" value="Transgender" checked="true">Transgender
-                   <?php }?>
-                   <div class="form-group"> <label for="exampleInputEmail1">Details</label> <textarea type="text" class="form-control" id="details" name="details" placeholder="Details" required="true" rows="12" cols="4"><?php  echo $row['Details'];?></textarea> </div>
-                   <div class="form-group"> <label for="exampleInputPassword1">Creation Date</label> <input type="text" id="" name="" class="form-control"  value="<?php  echo $row['CreationDate'];?>" readonly='true'> </div>
-
-							 <?php } ?>
 							  <button type="submit" name="submit" class="btn btn-default">Update</button> </form> 
 						</div>
 						
