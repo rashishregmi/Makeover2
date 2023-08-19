@@ -1,12 +1,13 @@
+ 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="./../css/home.css">
+    <link rel="stylesheet" href="./css/home.css">
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Monoton&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
 
-    <title>Home</title>
+    <title>Makeover</title>
 </head>
 <body>
     <header>
@@ -18,12 +19,21 @@
             </span>
         </div>
             <ul>
-            <li><a href="./../html/Home.html" class="links">Home</a></li>
-            <li><a href="./../html/About.html" class="links">About</a></li>
-            <li><a href="./../html/Services.html" class="links">Service</a></li>
-            <li><a href="./../html/login.html" class="links">Appointment</a></li>
-             
-            <li><a href="./../html/login.html" class="links">Login</a></li>
+<<<<<<< HEAD:index.html
+            <li><a href="./html/Home.html" class="links">Home</a></li>
+            <li><a href="./html/About.html" class="links">About</a></li>
+            <li><a href="./html/Services.html" class="links">Service</a></li>
+            <li><a href="./html/login.html" class="links">Appointment</a></li>
+            
+            <li><a href="./html/login.html" class="links">Login</a></li>
+=======
+            <li><a href="Home.php" class="links">Home</a></li>
+            <li><a href="About.php" class="links">About</a></li>
+            <li><a href="Services.php" class="links">Service</a></li>
+            <li><a href="Appointment.php" class="links">Appointment</a></li>
+            
+            <li><a href="login.php" class="links">Login</a></li>
+>>>>>>> 8ca4d71071275f1a27f518df2ed063f20b77999f:index.php
         </ul>
         </nav>
     </header>
@@ -73,7 +83,7 @@
 
             <div class="box1-info">
 
-                Manigram,Tilottama-5, Nepal <br>
+                Manigram,tilottama-5, Nepal <br>
             Phone: 9811592861, 9826479062 <br>
             Email: <a class="gmail" href="mailto:rashish.regmi100@gmail.com">rashish.regmi100@gmail.com</a><br> <br>
 
@@ -98,11 +108,11 @@
 
             <div class="social-media">
             <ul>
-                <li><a href="https://www.facebook.com/rashish.regmi" target="_blank"><img class="fb" src="./../images/Facebook-logo.png" alt="Facebook" style="height: 2rem;
+                <li><a href="https://www.facebook.com/rashish.regmi" target="_blank"><img class="fb" src="./images/Facebook-logo.png" alt="Facebook" style="height: 2rem;
                     width: 1.9rem;"  ></a></li>
-                <li><a href="https://www.instagram.com/regmirashish" target="_blank"><img src="./../images/logo-instagram.png" alt="Instagram" style="height: 2.2rem; position: relative; bottom: 0.1rem;"></a></li>
-                <li><a href="https://twitter.com/rashishregmi" target="_blank"><img src="./../images/logo-twitter.png"  alt="Twitter"></a></li>
-                <li><a href="https://www.linkedin.com/in/rashish-regmi-09925724a/" target="_blank"><img src="./../images/linkedin-logo.png" alt="LinkedIn"></a></li>
+                <li><a href="https://www.instagram.com/regmirashish" target="_blank"><img src="./images/logo-instagram.png" alt="Instagram" style="height: 2.2rem; position: relative; bottom: 0.1rem;"></a></li>
+                <li><a href="https://twitter.com/rashishregmi" target="_blank"><img src="./images/logo-twitter.png"  alt="Twitter"></a></li>
+                <li><a href="https://www.linkedin.com/in/rashish-regmi-09925724a/" target="_blank"><img src="./images/linkedin-logo.png" alt="LinkedIn"></a></li>
               </ul>
         </div>
         <div class="copyright">&copy; 2023 Makeover.com</div>

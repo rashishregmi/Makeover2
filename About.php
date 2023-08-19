@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About</title>
-    <link rel="stylesheet" href="./../css/About.css">
+    <link rel="stylesheet" href="./css/About.css">
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Monoton&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
@@ -22,12 +23,21 @@
                 </span>
             </div>
             <ul>
+<<<<<<< HEAD:html/About.html
                 <li><a href="./../html/Home.html" class="links">Home</a></li>
                 <li><a href="./../html/About.html" class="links">About</a></li>
                 <li><a href="./../html/Services.html" class="links">Service</a></li>
                 <li><a href="./../html/login.html" class="links">Appointment</a></li>
                  
                 <li><a href="./../html/login.html" class="links">Login</a></li>
+=======
+                <li><a href="Home.php" class="links">Home</a></li>
+                <li><a href="About.php" class="links">About</a></li>
+                <li><a href="Services.php" class="links">Service</a></li>
+                <li><a href="appointment.php" class="links">Appointment</a></li>
+                 
+                <li><a href="login.php" class="links">Login</a></li>
+>>>>>>> 8ca4d71071275f1a27f518df2ed063f20b77999f:About.php
             </ul>
         </nav>
     </header>
@@ -112,18 +122,13 @@
                     </span>
 
                     <div class="social-media">
-                        <ul>
-                            <li><a href="https://www.facebook.com/rashish.regmi" target="_blank"><img class="fb"
-                                        src="./../images/Facebook-logo.png" alt="Facebook" style="height: 2rem;
-                         width: 1.9rem;"></a></li>
-                            <li><a href="https://www.instagram.com/regmirashish" target="_blank"><img
-                                        src="./../images/logo-instagram.png" alt="Instagram"
-                                        style="height: 2.2rem; position: relative; bottom: 0.1rem;"></a></li>
-                            <li><a href="https://twitter.com/rashishregmi" target="_blank"><img
-                                        src="./../images/logo-twitter.png" alt="Twitter"></a></li>
-                            <li><a href="https://www.linkedin.com/in/rashish-regmi-09925724a/" target="_blank"><img
-                                        src="./../images/linkedin-logo.png" alt="LinkedIn"></a></li>
-                        </ul>
+                    <ul>
+                <li><a href="https://www.facebook.com/rashish.regmi" target="_blank"><img class="fb" src="./images/Facebook-logo.png" alt="Facebook" style="height: 2rem;
+                    width: 1.9rem;"  ></a></li>
+                <li><a href="https://www.instagram.com/regmirashish" target="_blank"><img src="./images/logo-instagram.png" alt="Instagram" style="height: 2.2rem; position: relative; bottom: 0.1rem;"></a></li>
+                <li><a href="https://twitter.com/rashishregmi" target="_blank"><img src="./images/logo-twitter.png"  alt="Twitter"></a></li>
+                <li><a href="https://www.linkedin.com/in/rashish-regmi-09925724a/" target="_blank"><img src="./images/linkedin-logo.png" alt="LinkedIn"></a></li>
+              </ul>
                     </div>
                     <div class="copyright">&copy; 2023 Makeover.com</div>
                 </div>

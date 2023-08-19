@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const logoutNoButton = document.getElementById("logout-no");
 
     logoutYesButton.addEventListener("click", function () {
-      window.location.href = "http://localhost/Makeover/html/login.html";
+      window.location.href = "http://localhost/Makeover/login.php";
       document.body.removeChild(confirmationPopup);
     });
 
@@ -69,29 +69,43 @@ document.addEventListener("DOMContentLoaded", function () {
       errorMessage = "Please select both date and time.";
     }
 
-    // Date Validation (must be today or in the future)
-    else {
-      const today = new Date();
-      today.setHours(0, 0, 0, 0);
-      const selectedDate = new Date(calendarDate);
-      if (selectedDate < today) {
-        errorMessage = "Date must be today or in the future.";
-      } else {
-        const selectedTime = new Date(`2000-01-01T${time}`);
-        const currentHour = new Date().getHours();
-        const currentMinute = new Date().getMinutes();
+    // Date and Time Validation
+else {
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  const selectedDate = new Date(calendarDate);
+  const selectedTime = new Date(`2000-01-01T${time}`);
 
-        // Check if time is at least 30 minutes after current time
-        if (
-          selectedTime.getHours() < openingHour ||
-          selectedTime.getHours() > closingHour ||
-          (selectedTime.getHours() === closingHour && selectedTime.getMinutes() > 0) ||
-          (selectedTime.getHours() === currentHour && selectedTime.getMinutes() <= currentMinute + 30)
-        ) {
-          errorMessage = "Appointment can be booked only after half an hour earlier";
-        }
-      }
-    }
+  // Check if the selected date is today or in the future
+  if (selectedDate < today) {
+    errorMessage = "Date must be today or in the future.";
+  } else if (selectedDate.getTime() === today.getTime() && selectedTime <= today) {
+    errorMessage = "Time must be in the future.";
+  }
+
+  // Check if the selected time is within the range of 10 AM to 6 PM
+  const openingHour = 10;
+  const closingHour = 18;
+  if (
+    selectedTime.getHours() < openingHour ||
+    selectedTime.getHours() > closingHour ||
+    (selectedTime.getHours() === closingHour && selectedTime.getMinutes() > 0)
+  ) {
+    errorMessage = "Appointment time must be between 10 AM and 6 PM.";
+  }
+
+  // Check if the selected time is at least 30 minutes from now
+  const currentHour = new Date().getHours();
+  const currentMinute = new Date().getMinutes();
+  const thirtyMinutesFromNow = new Date();
+  thirtyMinutesFromNow.setMinutes(currentMinute + 30);
+  if (
+    selectedTime.getHours() < currentHour ||
+    (selectedTime.getHours() === currentHour && selectedTime.getMinutes() <= currentMinute + 30)
+  ) {
+    errorMessage = "Appointment can be booked only after half an hour earlier";
+  }
+}
 
     // Show error message in alert if there is an error
     if (errorMessage !== null) {
