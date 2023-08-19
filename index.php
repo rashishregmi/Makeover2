@@ -21,7 +21,7 @@
             <li><a href="../Home.php" class="links">Home</a></li>
             <li><a href="../About.php" class="links">About</a></li>
             <li><a href="../Services.php" class="links">Service</a></li>
-            <li><a href="../login.php" class="links">Appointment</a></li>
+            <li><a href="../Appointment.php" class="links">Appointment</a></li>
             
             <li><a href="../login.php" class="links">Login</a></li>
         </ul>

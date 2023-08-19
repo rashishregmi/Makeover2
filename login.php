@@ -20,7 +20,7 @@
                 <li><a href="./../html/Home.php" class="links">Home</a></li>
                 <li><a href="./../html/About.php" class="links">About</a></li>
                 <li><a href="./../html/Services.php" class="links">Service</a></li>
-                <li><a href="./../html/login.php" class="links">Appointment</a></li>
+                <li><a href="./../html/Appointment.php" class="links">Appointment</a></li>
                  
                 <li><a href="./../html/login.php" class="links">Login</a></li>
             </ul>
