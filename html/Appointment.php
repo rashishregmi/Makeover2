@@ -24,10 +24,10 @@
                 </span>
             </div>
             <ul>
-                <li><a href="./../html/Home.html" class="links">Home</a></li>
-                <li><a href="./../html/About.html" class="links">About</a></li>
-                <li><a href="./../html/Services.html" class="links">Service</a></li>
-                <li><a href="./../html/Appointment.html" class="links">Appointment</a></li>
+                <li><a href="./../html/Home.php" class="links">Home</a></li>
+                <li><a href="./../html/About.php" class="links">About</a></li>
+                <li><a href="./../html/Services.php" class="links">Service</a></li>
+                <li><a href="./../html/Appointment.php" class="links">Appointment</a></li>
                  
                 <li><a href="#" class="links" id="logout-link3" class="logoutc" style="padding-right: 32px;" >Logout</a></li>
             </ul>
