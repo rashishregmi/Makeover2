@@ -33,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     session_start();
                     $_SESSION['user_id'] = $stmt->insert_id;
                     $_SESSION['email'] = $email;
-                    header("Location: http://localhost/Makeover/html/login.html#success");
+                    header("Location: http://localhost/Makeover/login.php#success");
                     exit;
                 } else {
                     // Redirect back to signup page with a general error message
