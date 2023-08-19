@@ -34,7 +34,7 @@
 
                 <h2>Login</h2>
                 <div id="error-message" style="color: red;"></div>
-                <form action="../makeover/php/login.php" method="POST" id="login-form">
+                <form action="./php/login.php" method="POST" id="login-form">
                     <div class="input-box">
                         <span class="icon">
                             <ion-icon name="mail"></ion-icon>
@@ -63,7 +63,7 @@
                 <h2>Registration</h2>
                 <div id="error-message2" style="color: red;"></div>
 
-                <form action="../makeover/php/signup.php" method="POST" id="register-form">
+                <form action="./php/signup.php" method="POST" id="register-form">
                     
                     <div class="input-box">
                         <span class="icon">
