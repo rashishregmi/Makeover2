@@ -99,11 +99,11 @@
 
             <div class="social-media">
             <ul>
-                <li><a href="https://www.facebook.com/rashish.regmi" target="_blank"><img class="fb" src="./../images/Facebook-logo.png" alt="Facebook" style="height: 2rem;
+                <li><a href="https://www.facebook.com/rashish.regmi" target="_blank"><img class="fb" src="./images/Facebook-logo.png" alt="Facebook" style="height: 2rem;
                     width: 1.9rem;"  ></a></li>
-                <li><a href="https://www.instagram.com/regmirashish" target="_blank"><img src="./../images/logo-instagram.png" alt="Instagram" style="height: 2.2rem; position: relative; bottom: 0.1rem;"></a></li>
-                <li><a href="https://twitter.com/rashishregmi" target="_blank"><img src="./../images/logo-twitter.png"  alt="Twitter"></a></li>
-                <li><a href="https://www.linkedin.com/in/rashish-regmi-09925724a/" target="_blank"><img src="./../images/linkedin-logo.png" alt="LinkedIn"></a></li>
+                <li><a href="https://www.instagram.com/regmirashish" target="_blank"><img src="./images/logo-instagram.png" alt="Instagram" style="height: 2.2rem; position: relative; bottom: 0.1rem;"></a></li>
+                <li><a href="https://twitter.com/rashishregmi" target="_blank"><img src="./images/logo-twitter.png"  alt="Twitter"></a></li>
+                <li><a href="https://www.linkedin.com/in/rashish-regmi-09925724a/" target="_blank"><img src="./images/linkedin-logo.png" alt="LinkedIn"></a></li>
               </ul>
         </div>
         <div class="copyright">&copy; 2023 Makeover.com</div>
