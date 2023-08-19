@@ -25,12 +25,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         } else {
             // Login failed, redirect back to the login page with an error message
             $stmt->close();
-            header("Location: http://localhost/Makeover/html/login.php#");
+            header("Location: http://localhost/Makeover/login.php#");
             exit;
         }
     } else {
         // Missing required fields: email or password
-        header("Location: http://localhost/Makeover/html/login.php#");
+        header("Location: http://localhost/Makeover/login.php#");
         exit;
     }
 }

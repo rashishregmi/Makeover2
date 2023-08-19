@@ -83,7 +83,7 @@ if (
 
     $conn->close();
 
-    header("Location: http://localhost/Makeover/html/Appointment.html");
+    header("Location: http://localhost/Makeover/Appointment.php");
     exit;
 } else {
     echo "Error: Please fill in all required fields.";
