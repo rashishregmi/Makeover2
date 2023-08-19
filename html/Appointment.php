@@ -29,7 +29,7 @@
                 <li><a href="./../html/Services.php" class="links">Service</a></li>
                 <li><a href="./../html/Appointment.php" class="links">Appointment</a></li>
                  
-                <li><a href="#" class="links" id="logout-link3" class="logoutc" style="padding-right: 32px;" >Logout</a></li>
+                <li><a href="./../html/login.php" class="links" id="logout-link3" class="logoutc" style="padding-right: 32px;" >Logout</a></li>
             </ul>
         </nav>
     </header>
