@@ -1,6 +1,6 @@
 <?php
 // Include connection files for both databases
-include('../php/connection.php');
+include('../connection.php');
 include('../makeover_admin/includes/dbconnection.php');
 
 // Retrieve data from makeover database users table (username, email)

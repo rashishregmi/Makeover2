@@ -1,5 +1,5 @@
 <?php
-require '../php/connection.php';
+require '../connection.php';
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     // Get the JSON data sent from the client
