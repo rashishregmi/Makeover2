@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const logoutNoButton = document.getElementById("logout-no");
 
     logoutYesButton.addEventListener("click", function () {
-      window.location.href = "http://localhost/Makeover/html/login.html";
+      window.location.href = "http://localhost/Makeover/login.php";
       document.body.removeChild(confirmationPopup);
     });
 
