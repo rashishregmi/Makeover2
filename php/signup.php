@@ -3,7 +3,9 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-require '../php/connection.php';
+echo "Hello word";
+
+require './connection.php';
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     // Check if all required fields are provided
@@ -17,6 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $check_stmt->bind_param("s", $email);
         $check_stmt->execute();
         $check_result = $check_stmt->get_result();
+
 
         if ($check_result->num_rows > 0) {
             // User with the same email already exists
