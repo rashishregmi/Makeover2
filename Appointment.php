@@ -41,7 +41,7 @@
         <div class="appointment-container">
             <h2>Book your Appointment</h2>
 
-            <form id="appointment-form" action="../php/submit_appointment.php" method="post">
+            <form id="appointment-form" action="../makeover/php/submit_appointment.php" method="post">
 
 
 
