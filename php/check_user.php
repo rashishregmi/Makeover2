@@ -1,5 +1,5 @@
 <?php
-require '../connection.php';
+require '../php/connection.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     

@@ -1,6 +1,6 @@
 <?php
 echo "submit_appointment.php is being executed";
-include '../connection.php';
+require '../php/connection.php';
 
 // Check if the required form fields are set and not empty
 if (

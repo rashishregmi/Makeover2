@@ -1,6 +1,6 @@
 <?php
 session_start();
-require '../connection.php';
+require '../php/connection.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Check if email and password are provided

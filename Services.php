@@ -26,7 +26,7 @@
                     <li><a href="Services.php" class="links">Service</a></li>
                     <li><a href="Appointment.php" class="links">Appointment</a></li>
                      
-                    <li><a href="login.html" class="links">Login</a></li>
+                    <li><a href="login.php" class="links">Login</a></li>
                 </ul>
             </nav>
         </header>
