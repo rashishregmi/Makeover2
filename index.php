@@ -1,10 +1,8 @@
-<?php
-include('../connection.php');
-?>
+ 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="./../makeover/css/home.css">
+    <link rel="stylesheet" href="./css/home.css">
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Monoton&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
@@ -21,12 +19,12 @@ include('../connection.php');
             </span>
         </div>
             <ul>
-            <li><a href="../Home.php" class="links">Home</a></li>
-            <li><a href="../About.php" class="links">About</a></li>
-            <li><a href="../Services.php" class="links">Service</a></li>
-            <li><a href="../Appointment.php" class="links">Appointment</a></li>
+            <li><a href="Home.php" class="links">Home</a></li>
+            <li><a href="About.php" class="links">About</a></li>
+            <li><a href="Services.php" class="links">Service</a></li>
+            <li><a href="Appointment.php" class="links">Appointment</a></li>
             
-            <li><a href="../login.php" class="links">Login</a></li>
+            <li><a href="login.php" class="links">Login</a></li>
         </ul>
         </nav>
     </header>

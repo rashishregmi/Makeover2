@@ -1,13 +1,11 @@
-<?php
-include('../connection.php');
-?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login and Registration</title>
-    <link rel="stylesheet" href="../../makeover/css/login.css">
+    <link rel="stylesheet" href="./css/login.css">
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Monoton&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
@@ -20,12 +18,12 @@ include('../connection.php');
                 <span class="logo">Makeover</span>
             </div>
             <ul>
-                <li><a href="./../html/Home.php" class="links">Home</a></li>
-                <li><a href="./../html/About.php" class="links">About</a></li>
-                <li><a href="./../html/Services.php" class="links">Service</a></li>
-                <li><a href="./../html/Appointment.php" class="links">Appointment</a></li>
+                <li><a href="Home.php" class="links">Home</a></li>
+                <li><a href="About.php" class="links">About</a></li>
+                <li><a href="Services.php" class="links">Service</a></li>
+                <li><a href="Appointment.php" class="links">Appointment</a></li>
                  
-                <li><a href="./../html/login.php" class="links">Login</a></li>
+                <li><a href="login.php" class="links">Login</a></li>
             </ul>
         </nav>
     </header>
